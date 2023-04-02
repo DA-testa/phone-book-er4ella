@@ -17,7 +17,7 @@ def process_queries(queries):
     contacts = {}
     for cur_query in queries:
         if cur_query.type == 'add':
-           contacts[cur_query] = cur_query.name
+           contacts[cur_query.number] = cur_query.name
         elif cur_query.type == 'del':
             if cur_query.number in contacts:
                 del contacts[cur_query.number]
@@ -27,8 +27,9 @@ def process_queries(queries):
     return result
 
 def write_responses(result):
-    print('\n'.join(result))
-
+   # print('\n'.join(result))
+   for r in result:
+    print(r)
 if __name__ == '__main__':
     queries = read_queries()
     result = process_queries(queries)
