@@ -13,7 +13,6 @@ def read_queries():
 
 def process_queries(queries):
     result = []
-    # Keep list of all existing (i.e. not deleted yet) contacts.
     contacts = {}
     for cur_query in queries:
         if cur_query.type == 'add':
@@ -25,9 +24,8 @@ def process_queries(queries):
             name = contacts.get(cur_query.number, "not found")
             result.append(name)
     return result
-
+    
 def write_responses(result):
-   # print('\n'.join(result))
    for r in result:
     print(r)
 if __name__ == '__main__':
